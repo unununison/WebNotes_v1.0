@@ -1,0 +1,24 @@
+﻿@model WebNotes.Data.Note
+@{
+    ViewBag.Title = "Добавление заметки";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form asp-action="create" asp-controller="home">
+    <div class="form-group">
+        <label asp-for="Note_head" class="control-label">Заголовок</label>
+        <input type="text" asp-for="Note_head" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Note_text" class="control-label">Заметка</label>
+        <input type="text" asp-for="Note_text" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Note_text" class="control-label">Тег</label><br />
+        @Html.DropDownListFor(Model => Model.TagId, ViewBag.Tags as SelectList, "Без тега")
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Создать" class="btn btn-outline-dark" />
+        <a asp-action="Note" class="btn btn-outline-dark">Назад</a>
+    </div>
+</form>

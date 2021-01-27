@@ -1,0 +1,9 @@
+﻿@model IEnumerable<WebNotes.Data.Note>
+@{
+    ViewBag.Title = "WebNote";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<a asp-action="Note" asp-controller="Home" class="btn btn-outline-dark">Заметки</a>
+<a asp-action="Notification" asp-controller="Home" class="btn btn-outline-dark">Напоминания</a>
+<a asp-action="Tag" asp-controller="Home" class="btn btn-outline-dark">Теги</a>

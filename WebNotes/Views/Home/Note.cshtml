@@ -1,0 +1,35 @@
+﻿@model IEnumerable<WebNotes.Data.Note>
+@{
+    ViewBag.Title = "Все заметки";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<a asp-action="Create"class="btn btn-outline-dark">Добавить новую заметку</a>
+<a asp-action="Index" class="btn btn-outline-dark">Назад</a>
+<table class="table">
+    <tr>
+        <td>Заголовок</td>
+        <td>Заметка</td>
+        <td>Тег</td>
+        <td>Действия</td>
+    </tr>
+   @foreach (var item in Model){
+    <tr>
+        <td>@item.Note_head</td>
+        <td>@item.Note_text</td>
+       @if (item.TagId == null){ 
+            <td></td> 
+        }else{ 
+            <td>@item.Tag.Tag_text</td>
+        }
+        <td>
+            <a asp-action="Edit" asp-controller="Home" asp-route-id="@item.Id">Изменить</a>
+            <form asp-controller="Home" asp-action="Delete" asp-route-id="@item.Id" method="post">
+                <div class="form-group">
+                    <input type="submit" class="btn btn-default" value="Удалить" />
+                </div>
+            </form>
+        </td>
+    </tr>
+    }
+</table>

@@ -1,0 +1,16 @@
+﻿@model WebNotes.Data.Tag
+@{
+    ViewBag.Title = "Добавление тега";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form asp-action="TagCreate" asp-controller="home">
+    <div class="form-group">
+        <label asp-for="Tag_text" class="control-label">Тег</label>
+        <input type="text" asp-for="Tag_text" class="form-control" />
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Создать" class="btn btn-outline-dark" />
+        <a asp-action="Tag" class="btn btn-outline-dark" >Назад</a>
+    </div>
+</form>

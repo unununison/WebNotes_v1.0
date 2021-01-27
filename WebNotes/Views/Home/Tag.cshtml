@@ -1,0 +1,27 @@
+﻿@model IEnumerable<WebNotes.Data.Tag>
+@{
+    ViewBag.Title = "Все теги";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<a asp-action="TagCreate" class="btn btn-outline-dark">Добавить новый тэг</a>
+<a asp-action="Index" class="btn btn-outline-dark">Назад</a>
+<table class="table">
+    <tr>
+        <td>Тег</td>
+        <td>Действия</td>
+    </tr>
+   @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Tag_text</td>
+            <td>
+                <form asp-controller="Home" asp-action="TagDelete" asp-route-id="@item.Id" method="post">
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-default" value="Удалить" />
+                    </div>
+                </form>
+            </td>
+        </tr>
+    }
+</table>

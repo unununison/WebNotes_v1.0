@@ -10,7 +10,6 @@ namespace WebNotes.Data
         public int Id { get; set; }
         public string Tag_text { get; set; }
         
-
         public IEnumerable<Note> Notes { get; set; }
     }
 }
